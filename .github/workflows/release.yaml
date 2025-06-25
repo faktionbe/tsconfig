@@ -3,6 +3,9 @@ name: Release
 on:
   push:
     branches: [main]
+    
+permissions:
+  pull-requests: write  # If you need to create/update PRs
 
 jobs:
   release:
