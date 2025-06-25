@@ -3,9 +3,12 @@ name: Release
 on:
   push:
     branches: [main]
-    
+
 permissions:
-  pull-requests: write  # If you need to create/update PRs
+  contents: write
+  pull-requests: write
+  actions: write
+  checks: write
 
 jobs:
   release:
