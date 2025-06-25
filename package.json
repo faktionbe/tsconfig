@@ -12,6 +12,9 @@
     "node.json",
     "react.json"
   ],
+  "scripts": {
+    "release": "changeset publish"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.29.5"
   }
