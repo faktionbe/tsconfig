@@ -1,0 +1,18 @@
+{
+  "name": "@faktion/tsconfig",
+  "description": "A collection of TypeScript configuration files for consistent development across Faktion projects.",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "base.json",
+    "node.json",
+    "react.json"
+  ],
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5"
+  }
+}
