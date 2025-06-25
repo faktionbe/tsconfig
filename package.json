@@ -1,5 +1,5 @@
 {
-  "name": "@faktion/tsconfig",
+  "name": "@faktion-com/tsconfig",
   "description": "A collection of TypeScript configuration files for consistent development across Faktion projects.",
   "version": "0.0.0",
   "private": false,
