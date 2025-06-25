@@ -1,4 +1,4 @@
-# @faktion/tsconfig
+# @faktion-com/tsconfig
 
 A collection of TypeScript configuration files for consistent development across Faktion projects.
 
@@ -9,7 +9,7 @@ This package provides standardized TypeScript configurations that can be extende
 ## Installation
 
 ```bash
-pnpm i --save-dev @faktion/tsconfig
+pnpm i --save-dev @faktion-com/tsconfig
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ pnpm i --save-dev @faktion/tsconfig
 
 ```json
 {
-  "extends": "@faktion/tsconfig/node.json"
+  "extends": "@faktion-com/tsconfig/node.json"
 }
 ```
 
@@ -26,7 +26,7 @@ pnpm i --save-dev @faktion/tsconfig
 
 ```json
 {
-  "extends": "@faktion/tsconfig/react.json"
+  "extends": "@faktion-com/tsconfig/react.json"
 }
 ```
 
@@ -34,7 +34,7 @@ pnpm i --save-dev @faktion/tsconfig
 
 ```json
 {
-  "extends": "@faktion/tsconfig/base.json",
+  "extends": "@faktion-com/tsconfig/base.json",
   "compilerOptions": {
     // Your custom options here
   }
