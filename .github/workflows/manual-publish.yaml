@@ -1,0 +1,42 @@
+name: Manual publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Unpublish the current package.json version on npm, then publish again
+        type: boolean
+        default: true
+
+permissions: {}
+
+concurrency:
+  group: manual-publish-${{ github.ref }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Unpublish existing version
+        if: inputs.force
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          npm unpublish "@faktion-com/tsconfig@${VERSION}" --force
+
+      - name: Publish to npm
+        run: pnpm publish --access public --no-git-checks
