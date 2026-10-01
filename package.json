@@ -10,6 +10,7 @@
   "files": [
     "base.json",
     "node.json",
+    "nestjs.json",
     "react.json"
   ],
   "scripts": {

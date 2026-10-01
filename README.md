@@ -22,6 +22,18 @@ pnpm i --save-dev @faktion-com/tsconfig
 }
 ```
 
+### For NestJS projects (ESM)
+
+```json
+{
+  "extends": "@faktion-com/tsconfig/nestjs.json"
+}
+```
+
+Use with `"type": "module"` in the Nest app `package.json`. Keep `node.json` for non-Nest Node projects that need the older shared preset.
+
+`nestjs.json` uses `module: ESNext` and `moduleResolution: Bundler` so Nest apps can keep extensionless `@/` path aliases (for example `@/modules/prisma/prisma.service`). The Nest CLI SWC builder still emits native ESM when the package is `"type": "module"`. Use `node.json` (`NodeNext`) when you need TypeScript to enforce Node's file-extension rules on relative imports.
+
 ### For React projects
 
 ```json
