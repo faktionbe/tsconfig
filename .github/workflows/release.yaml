@@ -3,6 +3,12 @@ name: Release
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      publish_only:
+        description: Publish packages on main (uses npm Trusted Publishing for release.yaml)
+        type: boolean
+        default: true
 
 # Reset permissions; each job declares exactly what it needs.
 permissions: {}
@@ -49,7 +55,9 @@ jobs:
       - uses: changesets/action/version@v2
 
   publish:
-    if: needs.select-mode.outputs.mode == 'publish'
+    if: |
+      (github.event_name == 'push' && needs.select-mode.outputs.mode == 'publish') ||
+      (github.event_name == 'workflow_dispatch' && inputs.publish_only)
     needs: select-mode
     runs-on: ubuntu-latest
     permissions:
